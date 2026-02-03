@@ -1,10 +1,10 @@
 const lisALL  = document.getElementById("lisall");
+const tabela = document.getElementById("tabela")
+
+export function listallFunc(){
 
 
 
-
-
-lisALL.addEventListener('click',  event=>{
     
     var verificacao = document.querySelectorAll(".listall")
     
@@ -15,9 +15,11 @@ lisALL.addEventListener('click',  event=>{
 
     }else{
 
+    //limpa qualquer coisa que estiver na div para depois escrever
+    tabela.innerText = ""
     
-    fetch("http://localhost:8080/user/1") 
-    .then(Response => Response.json())
+    fetch("http://localhost:8080/user") 
+    .then(response => response.json())
     .then(data =>{
 
             data.forEach(data =>{
@@ -30,9 +32,9 @@ lisALL.addEventListener('click',  event=>{
                 nomeInput.value = data.nome
                 emailInput.value = data.email
                 idInput.value = data.Id
-                
-
-
+                nomeInput.readOnly = true;
+                emailInput.readOnly = true;
+                idInput.readOnly = true;
                 form.classList.add("listall")
                 tabela.appendChild(form)
                 form.appendChild(nomeInput)        
@@ -45,9 +47,9 @@ lisALL.addEventListener('click',  event=>{
 
     }//else
 
-})//evento
 
 
 
 
 
+}

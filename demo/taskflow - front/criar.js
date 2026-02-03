@@ -1,8 +1,12 @@
 const criar = document.getElementById("cre");
 const tabela = document.getElementById("tabela")
 
-//cria o primeiro evento da ação de criar usuário 
-criar.addEventListener("click", event=>{
+export function criarFunc(){
+
+    
+
+
+
 var form = document.createElement("form")
 var nomeInput = document.createElement("input")
 var emailInput = document.createElement("input")
@@ -10,9 +14,13 @@ var senhaInput = document.createElement("input")
 //variável para verificar se já existe os campos de criação 
 var verificacao = document.querySelector(".create");
 var btn = document.createElement("button")
+
 //faz a verificação se já existe se retornar null quer dizer que não existe
 if(verificacao == null){
 
+    
+//limpa qualquer coisa que estiver na div para depois escrever
+    tabela.innerText = ""
    
 
 
@@ -90,8 +98,9 @@ verificacao.remove()
 }
 
 
-})
 
+
+}
 
 
 
