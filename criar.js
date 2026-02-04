@@ -1,4 +1,4 @@
-const criar = document.getElementById("cre");
+
 const tabela = document.getElementById("tabela")
 
 export function criarFunc(){

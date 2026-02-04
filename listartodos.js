@@ -1,4 +1,4 @@
-const lisALL  = document.getElementById("lisall");
+
 const tabela = document.getElementById("tabela")
 
 export function listallFunc(){
