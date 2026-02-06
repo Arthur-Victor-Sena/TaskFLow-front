@@ -9,6 +9,9 @@ export function listarIdFunc(){
     const nomeInput = document.createElement("input")
     const emailInput = document.createElement("input")
     const idInput = document.createElement("input")
+    
+
+
 
     //faz a verificação se já existe se retornar null quer dizer que não existe
     if(verificacao == null){
@@ -17,26 +20,22 @@ export function listarIdFunc(){
     inputId.placeholder = "Digite o id do usuário que deseja verificar"
     
 
-    form.classList.add("lisId")
-    btnPesquisa.textContent = "Pesquisar"
+        form.classList.add("lisId")
+        btnPesquisa.textContent = "Pesquisar"
 
-    tabela.appendChild(form)
-    form.appendChild(inputId)
-    form.appendChild(btnPesquisa)
+        tabela.appendChild(form)
+        form.appendChild(inputId)
+        form.appendChild(btnPesquisa)
     
-    btnPesquisa.addEventListener("click" , event=>{
+        btnPesquisa.addEventListener("click" , event=>{
      
         event.preventDefault();
 
         funcId = Number(inputId.value) 
 
-        
-
         if(verInt(funcId) == true){
 
         
-        
-
         fetch(`http://localhost:8080/user/${funcId}`)
         .then(resposne => resposne.json())
         .then(data =>{
@@ -46,14 +45,23 @@ export function listarIdFunc(){
                 nomeInput.value = data.nome
                 emailInput.value = data.email
                 idInput.value = data.Id
+                
+
                 nomeInput.readOnly = true;
                 emailInput.readOnly = true;
                 idInput.readOnly = true;
-                form.classList.add("listall")
+               
+               
+                
                 tabela.appendChild(form)
+                    
+                
                 form.appendChild(nomeInput)        
                 form.appendChild(emailInput)      
                 form.appendChild(idInput)
+
+               
+                
 
 })
         }
@@ -70,7 +78,7 @@ export function listarIdFunc(){
 }
 }
 
-function verInt(n){
+    function verInt(n){
 
     let int = Number(n)
     if(Number.isInteger(n) ){

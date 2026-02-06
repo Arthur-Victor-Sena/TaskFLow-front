@@ -5,8 +5,6 @@ export function criarFunc(){
 
     
 
-
-
 var form = document.createElement("form")
 var nomeInput = document.createElement("input")
 var emailInput = document.createElement("input")
