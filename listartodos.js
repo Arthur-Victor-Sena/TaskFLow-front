@@ -3,16 +3,10 @@ const tabela = document.getElementById("tabela")
 
 export function listallFunc(){
 
-
-
-    
     var verificacao = document.querySelectorAll(".listall")
     
     if(verificacao.length > 0 ){
         verificacao.forEach(linha => linha.remove())
-        
-
-
     }else{
 
     //limpa qualquer coisa que estiver na div para depois escrever

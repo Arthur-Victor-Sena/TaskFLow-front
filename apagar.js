@@ -1,7 +1,8 @@
 const tabela = document.getElementById("tabela")
 
-export function atualizarIdFunc(){
-    var verificacao = document.querySelector(".atualizarId");
+export function apagarId(){
+
+    var verificacao = document.querySelector(".apagarId");
     var form = document.createElement("form")
     var inputId = document.createElement("input")
     var funcId
@@ -10,12 +11,12 @@ export function atualizarIdFunc(){
     const emailInput = document.createElement("input")
     const idInput = document.createElement("input")
     const senhaInput = document.createElement("input")
-    var btnAtualizar = document.createElement("button")
+    var btnApagar = document.createElement("button")
     var btnCancelar = document.createElement("button")
     var btnConfirmar = document.createElement("button")
 
     btnPesquisa.textContent = "Pesquisar"
-    btnAtualizar.textContent = "Atualizar"
+    btnApagar.textContent = "Apagar"
     btnConfirmar.textContent = "Confirmar"
     btnCancelar.textContent = "Cancelar"
 
@@ -23,10 +24,10 @@ export function atualizarIdFunc(){
     if(verificacao == null){
 
     tabela.innerText = ""
-    inputId.placeholder = "Digite o id a ser atualizado"
+    inputId.placeholder = "Digite o id a ser deletado "
     
 
-        form.classList.add("atualizarId")
+        form.classList.add("apagarId")
        
 
         tabela.appendChild(form)
@@ -47,9 +48,7 @@ export function atualizarIdFunc(){
       
        if(!response.ok){
         alert("Id não encontrado")
-        location.reload()
-        return
-       }
+       }else{
         
        
 
@@ -65,7 +64,7 @@ export function atualizarIdFunc(){
                 idInput.readOnly = true;
                
                
-                form.classList.add("atualizarId")
+                form.classList.add("apagarId")
                 tabela.appendChild(form)
                     
                 
@@ -73,61 +72,47 @@ export function atualizarIdFunc(){
                 form.appendChild(emailInput)      
                 form.appendChild(idInput)
                 form.appendChild(senhaInput)
-                form.appendChild(btnAtualizar)
+                form.appendChild(btnApagar)
                 
-                btnAtualizar.addEventListener("click" , event =>{
+                btnApagar.addEventListener("click" , event =>{
 
                     event.preventDefault()
-                    nomeInput.readOnly = false;
-                    emailInput.readOnly = false;
+                    
                     
 
-                    btnAtualizar.remove()
+                    btnApagar.remove()
 
 
                     form.appendChild(btnConfirmar)
                     form.appendChild(btnCancelar)
 
 
-                    btnConfirmar.addEventListener('click' , async event =>{
+                    btnConfirmar.addEventListener('click' ,async event =>{
                     
                     event.preventDefault();
                     
                     try{
-
-                    
-                 const response = await fetch(`http://localhost:8080/user/${funcId}`, {
+                    const response =  await fetch(`http://localhost:8080/user/${funcId}`, {
                        
-                        method: "PUT",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            nome: nomeInput.value,
-                            email: emailInput.value,
-                            senha: senhaInput.value
-                        })
-                        })// const response = fetch(`http://localhost:8080/user/${funcId}`, {
-
+                        method: "DELETE",})
 
                         if(!response.ok){
-                            alert("Erro ao salvar")
-                            location.reload()
-                            return
+                        alert("Erro, não foi possível apagar")
+                        location.reload()
+                        return
                         }
 
-                        alert("Salvo com sucesso")
+                        alert("Apagado com sucesso")
                         location.reload()
-
+                        
                     }catch{
                         alert("Servidor não encontrado")
                     }
-                      
 
-                    })//btnConfirmar.addEventListener('click' , async event =>{
+                    }) //  btnConfirmar.addEventListener('click' , event =>{
                     
                 })//btn atualizar event
-                 
+            }      
             }catch{
                 alert("ERRO! não foi possíel encontrar o servidor, verifique se o servidor está ativo")
             }
@@ -144,11 +129,15 @@ export function atualizarIdFunc(){
      } else{
     verificacao.remove()
 }
+    
+    
+
+
+
 }
 
 
-
-    function verInt(n){
+ function verInt(n){
 
     let int = Number(n)
     if(Number.isInteger(n) ){
@@ -159,5 +148,3 @@ export function atualizarIdFunc(){
         return false
     }
 }
-
-

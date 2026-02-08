@@ -27,7 +27,7 @@ export function listarIdFunc(){
         form.appendChild(inputId)
         form.appendChild(btnPesquisa)
     
-        btnPesquisa.addEventListener("click" , event=>{
+        btnPesquisa.addEventListener("click" , async event=>{
      
         event.preventDefault();
 
@@ -35,13 +35,19 @@ export function listarIdFunc(){
 
         if(verInt(funcId) == true){
 
-        
-        fetch(`http://localhost:8080/user/${funcId}`)
-        .then(resposne => resposne.json())
-        .then(data =>{
+        try{
 
-              
-                
+       const response = await fetch(`http://localhost:8080/user/${funcId}`)
+      
+
+              if(!response.ok){
+                alert("Erro, id não encontrado")
+                location.reload()
+                return
+              }
+
+              let data = await response.json()
+
                 nomeInput.value = data.nome
                 emailInput.value = data.email
                 idInput.value = data.Id
@@ -59,12 +65,14 @@ export function listarIdFunc(){
                 form.appendChild(nomeInput)        
                 form.appendChild(emailInput)      
                 form.appendChild(idInput)
+        
 
-               
-                
-
-})
-        }
+    }catch{
+        alert("Servidor não foi encontrado")
+        location.reload()
+    }
+        
+        }  //if(verInt(funcId) == true){
 
         else{
             alert("Digite um Id válido em formato de número inteiro (Números inteiros Ex: 1,2,3,4,5......)")
