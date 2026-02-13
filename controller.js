@@ -1,17 +1,30 @@
-import { criarFunc } from "./criar.js";
-import { listallFunc } from "./listartodos.js";
-import { listarIdFunc} from "./listarId.js"
-import {atualizarIdFunc} from "./atualizarporId.js"
-import {apagarId}  from "./apagar.js"
+import { criarFunc } from "./js/user/criar.js";
+import { listallFunc } from "./js/user/listartodos.js";
+import { listarIdFunc} from "./js/user/listarId.js"
+import {atualizarIdFunc} from "./js/user/atualizarporId.js"
+import {apagarId}  from "./js/user/apagar.js"
 
-const btnCriar = document.getElementById("cre")
-const btnListall = document.getElementById("lisall")
-const btnListId = document.getElementById("lisid")
-const btnAtualizarId = document.getElementById("atu")
-const btnapagarId = document.getElementById("del")
 
-btnCriar.addEventListener("click", criarFunc)
-btnListall.addEventListener("click", listallFunc)
-btnListId.addEventListener('click' , listarIdFunc)
-btnAtualizarId.addEventListener('click' , atualizarIdFunc)
-btnapagarId.addEventListener('click' , apagarId)
+const btnCriarUser = document.getElementById("creUser")
+const btnListallUser = document.getElementById("lisallUser")
+const btnListIdUser = document.getElementById("lisidUser")
+const btnAtualizarIdUser = document.getElementById("atuUser")
+const btnapagarIdUser = document.getElementById("delUser")
+
+
+btnCriarUser.addEventListener("click", criarFunc)
+btnListallUser.addEventListener("click", listallFunc)
+btnListIdUser.addEventListener('click' , listarIdFunc)
+btnAtualizarIdUser.addEventListener('click' , atualizarIdFunc)
+btnapagarIdUser.addEventListener('click' , apagarId)
+
+
+
+
+
+import {criarTask} from "./js/taks/criarTask.js"
+
+const btnCriarTask = document.getElementById("creTask");
+
+btnCriarTask.addEventListener("click" , criarTask)
+

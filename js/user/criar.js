@@ -2,23 +2,24 @@
 const tabela = document.getElementById("tabela")
 
 export function criarFunc(){
-
     
+//variável para verificar se já existe os campos de criação 
+var verificacao = document.querySelector(".create");
+
+
+//faz a verificação se já existe se retornar null quer dizer que não existe
+if(verificacao == null){
 
 var form = document.createElement("form")
 var nomeInput = document.createElement("input")
 var emailInput = document.createElement("input")
 var senhaInput = document.createElement("input")
-//variável para verificar se já existe os campos de criação 
-var verificacao = document.querySelector(".create");
+
 var btn = document.createElement("button")
 
-//faz a verificação se já existe se retornar null quer dizer que não existe
-if(verificacao == null){
 
-    
 //limpa qualquer coisa que estiver na div para depois escrever
-    tabela.innerText = ""
+tabela.innerText = ""
    
 
 
@@ -66,6 +67,12 @@ btn.addEventListener('click' ,async event=>{
         emailInput.value=""
         senhaInput.value = ""
     }
+
+     else if(response.status === 409){
+        alert("Este e-mail já está sendo usado")
+    }
+
+
     else{//apenas limpa os campos
         alert("Não foi possível a criação")
         nomeInput.value=""

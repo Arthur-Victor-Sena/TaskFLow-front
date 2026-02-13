@@ -12,6 +12,9 @@ export function listallFunc(){
     //limpa qualquer coisa que estiver na div para depois escrever
     tabela.innerText = ""
     
+    try{
+
+    
     fetch("http://localhost:8080/user") 
     .then(response => response.json())
     .then(data =>{
@@ -38,7 +41,10 @@ export function listallFunc(){
                 
                     })
     })//.then(data =>{
-
+    
+    }catch{
+        alert("Erro, não foi possível encontrar o servidor")
+    }
     }//else
 
 

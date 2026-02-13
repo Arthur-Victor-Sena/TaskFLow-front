@@ -4,20 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow API</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    <h1>TASKFLOW API</h1>
-    <h2>O que gostaria de fazer?</h2>
+    <h1 style="text-align: center;">TASKFLOW API</h1>
+    <h2 style="text-align: center;">O que gostaria de fazer com os usuários?</h2>
 
-    <button id="cre">criar um novo usuário</button>
-    <button id="lisall">listar todos os usuários</button>
-    <button id="lisid">listar usuário pelo id</button>
-    <button id="atu">atualizar um usuário pelo id </button>
-    <button id="del">apagar</button>
+    <div id="userConf">
 
+        <button id="creUser">criar um novo usuário</button>
+        <button id="lisallUser">listar todos os usuários</button>
+        <button id="lisidUser">listar usuário pelo id</button>
+        <button id="atuUser">atualizar um usuário pelo id </button>
+        <button id="delUser">apagar</button>
+        
+    </div>
     <div id="tabela">
        
     </div>
+
+    <h2 style="text-align: center;">O que gostaria de fazer com as tasks?</h2>
+    <div id="taskConf">
+
+        <button id="creTask">Criar uma nova tarefa</button>
+        <button id="lisalltask">listar todas as tarefas</button>
+        <button id="lisid">listar tarefa por id </button>
+        <button id="listaskuser">listar a tarefa de um usuário com base em seu ID </button>
+        
+    </div>
+
+
+     <div id="tabela2">
+       
+    </div>
+
+   
     
 
    <script type="module" src="controller.js"></script>

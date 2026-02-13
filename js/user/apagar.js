@@ -1,8 +1,12 @@
 const tabela = document.getElementById("tabela")
 
 export function apagarId(){
+var verificacao = document.querySelector(".apagarId");
+   
+    //faz a verificação se já existe se retornar null quer dizer que não existe
+    if(verificacao == null){
 
-    var verificacao = document.querySelector(".apagarId");
+    
     var form = document.createElement("form")
     var inputId = document.createElement("input")
     var funcId
@@ -20,11 +24,11 @@ export function apagarId(){
     btnConfirmar.textContent = "Confirmar"
     btnCancelar.textContent = "Cancelar"
 
-    //faz a verificação se já existe se retornar null quer dizer que não existe
-    if(verificacao == null){
+
+
 
     tabela.innerText = ""
-    inputId.placeholder = "Digite o id a ser deletado "
+    inputId.placeholder = "Digite o id do usuário a ser deletado "
     
 
         form.classList.add("apagarId")

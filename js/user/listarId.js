@@ -1,7 +1,15 @@
 const tabela = document.getElementById("tabela")
 
 export function listarIdFunc(){
+    
     var verificacao = document.querySelector(".lisId");
+
+
+    //faz a verificação se já existe se retornar null quer dizer que não existe
+    if(verificacao == null){
+
+
+    
     var form = document.createElement("form")
     var inputId = document.createElement("input")
     var funcId
@@ -10,11 +18,6 @@ export function listarIdFunc(){
     const emailInput = document.createElement("input")
     const idInput = document.createElement("input")
     
-
-
-
-    //faz a verificação se já existe se retornar null quer dizer que não existe
-    if(verificacao == null){
 
     tabela.innerText = ""
     inputId.placeholder = "Digite o id do usuário que deseja verificar"

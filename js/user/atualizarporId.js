@@ -1,7 +1,12 @@
 const tabela = document.getElementById("tabela")
 
 export function atualizarIdFunc(){
-    var verificacao = document.querySelector(".atualizarId");
+   var verificacao = document.querySelector(".atualizarId");
+
+    //faz a verificação se já existe se retornar null quer dizer que não existe
+    if(verificacao == null){
+
+    
     var form = document.createElement("form")
     var inputId = document.createElement("input")
     var funcId
@@ -13,17 +18,22 @@ export function atualizarIdFunc(){
     var btnAtualizar = document.createElement("button")
     var btnCancelar = document.createElement("button")
     var btnConfirmar = document.createElement("button")
-
+    const labelId = document.createElement("label");
+    const labelSenha = document.createElement("label");
+    const labelEmail = document.createElement("label");
+    const labelNome = document.createElement("label");
     btnPesquisa.textContent = "Pesquisar"
     btnAtualizar.textContent = "Atualizar"
     btnConfirmar.textContent = "Confirmar"
     btnCancelar.textContent = "Cancelar"
-
-    //faz a verificação se já existe se retornar null quer dizer que não existe
-    if(verificacao == null){
+    labelId.textContent = "ID";
+    labelSenha.textContent = "Senha";
+    labelEmail.textContent = "Email";
+    labelNome.textContent = "Nome";
+    btnCancelar.textContent = "Cancelar";
 
     tabela.innerText = ""
-    inputId.placeholder = "Digite o id a ser atualizado"
+    inputId.placeholder = "Digite o id do usuário a ser atualizado"
     
 
         form.classList.add("atualizarId")
@@ -54,7 +64,9 @@ export function atualizarIdFunc(){
        
 
      let data = await response.json()     
-
+               
+                
+               
                 nomeInput.value = data.nome
                 emailInput.value = data.email
                 idInput.value = data.Id
@@ -67,13 +79,29 @@ export function atualizarIdFunc(){
                
                 form.classList.add("atualizarId")
                 tabela.appendChild(form)
-                    
+
+                form.appendChild(document.createElement("br"))  
                 
-                form.appendChild(nomeInput)        
-                form.appendChild(emailInput)      
+                form.appendChild(labelNome)
+                form.appendChild(nomeInput)  
+                
+                 form.appendChild(document.createElement("br"))
+
+                form.appendChild(labelEmail)
+                form.appendChild(emailInput) 
+                
+                  form.appendChild(document.createElement("br")) 
+
+                form.appendChild(labelId)
                 form.appendChild(idInput)
+                
+                  form.appendChild(document.createElement("br"))
+
+                form.appendChild(labelSenha)
                 form.appendChild(senhaInput)
+                
                 form.appendChild(btnAtualizar)
+
                 
                 btnAtualizar.addEventListener("click" , event =>{
 
