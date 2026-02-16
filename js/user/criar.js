@@ -1,11 +1,11 @@
-
+const tabela2 = document.getElementById("tabela2")
 const tabela = document.getElementById("tabela")
 
 export function criarFunc(){
     
 //variável para verificar se já existe os campos de criação 
 var verificacao = document.querySelector(".create");
-
+tabela2.innerText = ""
 
 //faz a verificação se já existe se retornar null quer dizer que não existe
 if(verificacao == null){
@@ -62,7 +62,7 @@ btn.addEventListener('click' ,async event=>{
         
     //verifica se a resposta do back end deu positivo para o salvamento dos dados deu positivo(cod 201) e depois limpa os campos
     if(response.ok ){
-        alert("criado com sucesso ")
+        alert("Usuário criado com sucesso")
         nomeInput.value=""
         emailInput.value=""
         senhaInput.value = ""

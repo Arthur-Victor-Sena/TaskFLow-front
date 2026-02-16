@@ -1,5 +1,5 @@
 const tabela = document.getElementById("tabela")
-
+const tabela2 = document.getElementById("tabela2")
 export function listarIdFunc(){
     
     var verificacao = document.querySelector(".lisId");
@@ -18,7 +18,7 @@ export function listarIdFunc(){
     const emailInput = document.createElement("input")
     const idInput = document.createElement("input")
     
-
+    tabela2.innerText = ""
     tabela.innerText = ""
     inputId.placeholder = "Digite o id do usuário que deseja verificar"
     

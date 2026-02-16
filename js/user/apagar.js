@@ -1,4 +1,5 @@
 const tabela = document.getElementById("tabela")
+const tabela2 = document.getElementById("tabela2")
 
 export function apagarId(){
 var verificacao = document.querySelector(".apagarId");
@@ -26,7 +27,7 @@ var verificacao = document.querySelector(".apagarId");
 
 
 
-
+    tabela2.innerText = ""
     tabela.innerText = ""
     inputId.placeholder = "Digite o id do usuário a ser deletado "
     

@@ -1,8 +1,11 @@
 const tabela = document.getElementById("tabela")
+const tabela2 = document.getElementById("tabela2")
 
 export function atualizarIdFunc(){
    var verificacao = document.querySelector(".atualizarId");
 
+    tabela.innerText = ""
+    tabela2.innerText = ""
     //faz a verificação se já existe se retornar null quer dizer que não existe
     if(verificacao == null){
 
@@ -32,7 +35,7 @@ export function atualizarIdFunc(){
     labelNome.textContent = "Nome";
     btnCancelar.textContent = "Cancelar";
 
-    tabela.innerText = ""
+    
     inputId.placeholder = "Digite o id do usuário a ser atualizado"
     
 
@@ -95,7 +98,7 @@ export function atualizarIdFunc(){
                 form.appendChild(labelId)
                 form.appendChild(idInput)
                 
-                  form.appendChild(document.createElement("br"))
+                form.appendChild(document.createElement("br"))
 
                 form.appendChild(labelSenha)
                 form.appendChild(senhaInput)

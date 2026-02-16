@@ -1,3 +1,23 @@
 input{
-  width: 250px;
+  width: 200px;
+}
+
+
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+th{
+    background-color: gray;
+}
+
+td{
+    background-color: lightgray;
 }

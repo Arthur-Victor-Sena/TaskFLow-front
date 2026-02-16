@@ -1,17 +1,18 @@
-
+const tabela2 = document.getElementById("tabela2")
 const tabela = document.getElementById("tabela")
 
 export function listallFunc(){
 
     var verificacao = document.querySelectorAll(".listall")
     
+
     if(verificacao.length > 0 ){
-        verificacao.forEach(linha => linha.remove())
+        tabela.innerText = ""
     }else{
 
     //limpa qualquer coisa que estiver na div para depois escrever
     tabela.innerText = ""
-    
+    tabela2.innerText = ""
     try{
 
     

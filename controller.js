@@ -23,8 +23,11 @@ btnapagarIdUser.addEventListener('click' , apagarId)
 
 
 import {criarTask} from "./js/taks/criarTask.js"
+import {listarTodosTask} from "./js/taks/listarTodosTask.js"
 
 const btnCriarTask = document.getElementById("creTask");
+const btnListarTodosTask = document.getElementById("lisallTask")
 
 btnCriarTask.addEventListener("click" , criarTask)
+btnListarTodosTask.addEventListener("click" , listarTodosTask)
 
