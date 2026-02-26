@@ -1,155 +1,168 @@
 const tabela = document.getElementById("tabela")
 const tabela2 = document.getElementById("tabela2")
 
-export function apagarId(){
-var verificacao = document.querySelector(".apagarId");
-   
-    //faz a verificação se já existe se retornar null quer dizer que não existe
-    if(verificacao == null){
+export function apagarId() {
 
-    
-    var form = document.createElement("form")
-    var inputId = document.createElement("input")
-    var funcId
-    var btnPesquisa = document.createElement("button")
-    const nomeInput = document.createElement("input")
-    const emailInput = document.createElement("input")
-    const idInput = document.createElement("input")
-    const senhaInput = document.createElement("input")
-    var btnApagar = document.createElement("button")
-    var btnCancelar = document.createElement("button")
-    var btnConfirmar = document.createElement("button")
+    var verificacao = document.querySelector(".apagarId")
 
-    btnPesquisa.textContent = "Pesquisar"
-    btnApagar.textContent = "Apagar"
-    btnConfirmar.textContent = "Confirmar"
-    btnCancelar.textContent = "Cancelar"
+    if (verificacao == null) {
 
+        const labelId = document.createElement("label")
+        const labelSenha = document.createElement("label")
+        const labelEmail = document.createElement("label")
+        const labelNome = document.createElement("label")
 
+        var form = document.createElement("form")
+        var inputId = document.createElement("input")
+        var btnPesquisa = document.createElement("button")
 
-    tabela2.innerText = ""
-    tabela.innerText = ""
-    inputId.placeholder = "Digite o id do usuário a ser deletado "
-    
+        const nomeInput = document.createElement("input")
+        const emailInput = document.createElement("input")
+        const idInput = document.createElement("input")
+        const senhaInput = document.createElement("input")
+
+        var btnApagar = document.createElement("button")
+        var btnCancelar = document.createElement("button")
+        var btnConfirmar = document.createElement("button")
+
+        var funcId
+
+        btnPesquisa.textContent = "Pesquisar"
+        btnApagar.textContent = "Apagar usuário"
+        btnConfirmar.textContent = "Confirmar"
+        btnCancelar.textContent = "Cancelar"
+
+        labelId.textContent = "ID: "
+        labelSenha.textContent = "Senha: "
+        labelEmail.textContent = "Email: "
+        labelNome.textContent = "Nome: "
+
+        tabela2.innerText = ""
+        tabela.innerText = ""
+
+        inputId.placeholder = "Digite o id do usuário a ser deletado "
 
         form.classList.add("apagarId")
-       
 
         tabela.appendChild(form)
         form.appendChild(inputId)
         form.appendChild(btnPesquisa)
-    
-        btnPesquisa.addEventListener("click" , async event=>{
-     
-        event.preventDefault();
 
-        funcId = Number(inputId.value) 
+        btnPesquisa.addEventListener("click", async event => {
 
-        if(verInt(funcId) == true){
+            event.preventDefault()
+            funcId = Number(inputId.value)
 
-        try{
-           
-       const response = await   fetch(`http://localhost:8080/user/${funcId}`)      
-      
-       if(!response.ok){
-        alert("Id não encontrado")
-       }else{
-        
-       
+            if (verInt(funcId) == true) {
 
-     let data = await response.json()     
+                try {
 
-                nomeInput.value = data.nome
-                emailInput.value = data.email
-                idInput.value = data.Id
-                senhaInput.value = data.senha 
+                    const response = await fetch(`http://localhost:8080/user/${funcId}`)
 
-                nomeInput.readOnly = true;
-                emailInput.readOnly = true;
-                idInput.readOnly = true;
-               
-               
-                form.classList.add("apagarId")
-                tabela.appendChild(form)
-                    
-                
-                form.appendChild(nomeInput)        
-                form.appendChild(emailInput)      
-                form.appendChild(idInput)
-                form.appendChild(senhaInput)
-                form.appendChild(btnApagar)
-                
-                btnApagar.addEventListener("click" , event =>{
+                    if (!response.ok) {
+                        alert("Id não encontrado")
+                    } else {
 
-                    event.preventDefault()
-                    
-                    
+                        let data = await response.json()
 
-                    btnApagar.remove()
+                        nomeInput.value = data.nome
+                        emailInput.value = data.email
+                        idInput.value = data.Id
+                        senhaInput.value = data.senha
+
+                        nomeInput.readOnly = true
+                        emailInput.readOnly = true
+                        idInput.readOnly = true
+
+                        form.classList.add("apagarId")
+                        tabela.appendChild(form)
+
+                        form.appendChild(document.createElement("br"))
+
+                        form.appendChild(labelId)
+                        form.appendChild(idInput)
+
+                        form.appendChild(labelNome)
+                        form.appendChild(nomeInput)
+
+                        form.appendChild(document.createElement("br"))
+
+                        form.appendChild(labelEmail)
+                        form.appendChild(emailInput)
+
+                        form.appendChild(document.createElement("br"))
 
 
-                    form.appendChild(btnConfirmar)
-                    form.appendChild(btnCancelar)
+                        form.appendChild(document.createElement("br"))
 
+                        form.appendChild(labelSenha)
+                        form.appendChild(senhaInput)
 
-                    btnConfirmar.addEventListener('click' ,async event =>{
-                    
-                    event.preventDefault();
-                    
-                    try{
-                    const response =  await fetch(`http://localhost:8080/user/${funcId}`, {
-                       
-                        method: "DELETE",})
+                        form.appendChild(document.createElement("br"))
 
-                        if(!response.ok){
-                        alert("Erro, não foi possível apagar")
-                        location.reload()
-                        return
-                        }
+                        form.appendChild(btnApagar)
 
-                        alert("Apagado com sucesso")
-                        location.reload()
-                        
-                    }catch{
-                        alert("Servidor não encontrado")
+                        btnApagar.addEventListener("click", event => {
+
+                            event.preventDefault()
+
+                            btnApagar.remove()
+
+                            form.appendChild(btnConfirmar)
+                            form.appendChild(btnCancelar)
+
+                            btnConfirmar.addEventListener("click", async event => {
+
+                                event.preventDefault()
+
+                                try {
+
+                                    const response = await fetch(`http://localhost:8080/user/${funcId}`, {
+                                        method: "DELETE",
+                                    })
+
+                                    if (!response.ok) {
+                                        alert("Erro, não foi possível apagar")
+                                        location.reload()
+                                        return
+                                    }
+
+                                    alert("Apagado com sucesso")
+                                    location.reload()
+
+                                } catch {
+                                    alert("Servidor não encontrado")
+                                }
+
+                            })
+
+                        })
+
                     }
 
-                    }) //  btnConfirmar.addEventListener('click' , event =>{
-                    
-                })//btn atualizar event
-            }      
-            }catch{
-                alert("ERRO! não foi possíel encontrar o servidor, verifique se o servidor está ativo")
+                } catch {
+                    alert("ERRO! não foi possíel concluir esta ação")
+                }
+
+            } else {
+                alert("Digite um Id válido em formato de número inteiro (Números inteiros Ex: 1,2,3,4,5......)")
             }
 
-        }//if (verInt(funcId) == true){
+        })
 
-        else{
-            alert("Digite um Id válido em formato de número inteiro (Números inteiros Ex: 1,2,3,4,5......)")
-        }
-
-    })
-    
-    //para remover caso exista os inputs no front
-     } else{
-    verificacao.remove()
-}
-    
-    
-
-
+    } else {
+        verificacao.remove()
+    }
 
 }
 
-
- function verInt(n){
+function verInt(n) {
 
     let int = Number(n)
-    if(Number.isInteger(n) ){
-       
-            return true
-        
-    }else{
+
+    if (Number.isInteger(n)) {
+        return true
+    } else {
         return false
     }
 }

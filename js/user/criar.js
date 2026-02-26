@@ -9,8 +9,12 @@ tabela2.innerText = ""
 
 //faz a verificação se já existe se retornar null quer dizer que não existe
 if(verificacao == null){
+var labelNome = document.createElement("label")
+var labelEmail = document.createElement("label")
+var labelSenha = document.createElement("label")
 
 var form = document.createElement("form")
+
 var nomeInput = document.createElement("input")
 var emailInput = document.createElement("input")
 var senhaInput = document.createElement("input")
@@ -23,16 +27,13 @@ tabela.innerText = ""
    
 
 
-nomeInput.type = "text";
-nomeInput.placeholder = "Digite aqui o nome do usuario"
 
-emailInput.type = "email"
-emailInput.placeholder = "Digite aqui o email do usuario"
+labelNome.textContent = "Nome: "
+labelEmail.textContent = "E-mai: "
+labelSenha.textContent = "Senha: "
 
-senhaInput.type = "text"
-senhaInput.placeholder = "Digite a senha do usuário"
 
-btn.textContent = "Criar"
+btn.textContent = "Criar Usuário"
 
 //async garante que vire assíncrona a função assim podendo usar o wait
 btn.addEventListener('click' ,async event=>{
@@ -89,12 +90,22 @@ btn.addEventListener('click' ,async event=>{
 
 //cria os inputs 
 form.classList.add("create")
-tabela.appendChild(form)
+
+form.appendChild(labelNome)
 form.appendChild(nomeInput)
+form.appendChild(document.createElement("br"))
+
+form.appendChild(labelEmail)
 form.appendChild(emailInput)
+form.appendChild(document.createElement("br"))
+
+form.appendChild(labelSenha)
 form.appendChild(senhaInput)
+form.appendChild(document.createElement("br"))
+
 form.appendChild(btn)
 
+tabela.appendChild(form)
 }
 
 //para remover caso exista os inputs no front

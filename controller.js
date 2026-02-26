@@ -24,10 +24,15 @@ btnapagarIdUser.addEventListener('click' , apagarId)
 
 import {criarTask} from "./js/taks/criarTask.js"
 import {listarTodosTask} from "./js/taks/listarTodosTask.js"
+import { listarTaskId } from "./js/taks/listarTaskporID.js";
+import { listarTaskUser } from "./js/taks/listarTaskDeUser.js"; 
 
 const btnCriarTask = document.getElementById("creTask");
 const btnListarTodosTask = document.getElementById("lisallTask")
+const btnlistarTaskId = document.getElementById("lisidTask")
+const btnlistarTaskUser = document.getElementById("listaskuser")    
 
 btnCriarTask.addEventListener("click" , criarTask)
 btnListarTodosTask.addEventListener("click" , listarTodosTask)
-
+btnlistarTaskId.addEventListener("click" , listarTaskId)
+btnlistarTaskUser.addEventListener("click" , listarTaskUser)

@@ -16,26 +16,26 @@ try{
     const table = document.createElement("table")
     table.classList.add("listarTodosTask")
 
-    const cabecalho = document.createElement("thead")
-    const linhaPrincipal = document.createElement("tr")
+    const thead = document.createElement("thead")
+    const colunas = document.createElement("tr")
 
-    const labelTituloTask = document.createElement("th")
-    const labelDescTask = document.createElement("th")
-    const labelIdTask = document.createElement("th")
-    const labelStatusTask = document.createElement("th")
+    const colunaTituloTask = document.createElement("th")
+    const colunaDescTask = document.createElement("th")
+    const colunaIdTask = document.createElement("th")
+    const colunaStatusTask = document.createElement("th")
 
-    labelTituloTask.innerText = "Titulo"
-    labelDescTask.innerText = "Descrição"
-    labelIdTask.innerText = "ID da tarefa"
-    labelStatusTask.innerText = "Status"
+    colunaTituloTask.innerText = "Titulo"
+    colunaDescTask.innerText = "Descrição"
+    colunaIdTask.innerText = "ID da tarefa"
+    colunaStatusTask.innerText = "Status"
 
-    linhaPrincipal.appendChild(labelTituloTask)
-    linhaPrincipal.appendChild(labelDescTask)
-    linhaPrincipal.appendChild(labelIdTask)
-    linhaPrincipal.appendChild(labelStatusTask)
+    colunas.appendChild(colunaTituloTask)
+    colunas.appendChild(colunaDescTask)
+    colunas.appendChild(colunaIdTask)
+    colunas.appendChild(colunaStatusTask)
 
-    cabecalho.appendChild(linhaPrincipal)
-    table.appendChild(cabecalho)
+    thead.appendChild(colunas)
+    table.appendChild(thead)
 
     const tbody = document.createElement("tbody")
 
@@ -44,30 +44,30 @@ try{
     .then(data =>{
         data.forEach(data =>{
 
-            const linhasSecundarias = document.createElement("tr")
+            const linhas = document.createElement("tr")
 
-            const cellTitulo = document.createElement("td")
-            const cellDesc = document.createElement("td")
-            const cellId = document.createElement("td")
-            const cellStatus = document.createElement("td")
+            const tdTitulo = document.createElement("td")
+            const tdDesc = document.createElement("td")
+            const tdId = document.createElement("td")
+            const tdStatus = document.createElement("td")
 
 
-            cellTitulo.innerText = data.titulo
-            cellDesc.innerText = data.descr
-            cellId.innerText = data.Id
-            cellStatus.innerText = data.status
+            tdTitulo.innerText = data.titulo
+            tdDesc.innerText = data.descr
+            tdId.innerText = data.Id
+            tdStatus.innerText = data.status
 
-            cellTitulo.readOnly = true
-            cellDesc.readOnly = true
-            cellId.readOnly = true
-            cellStatus.readOnly = true
+            tdTitulo.readOnly = true
+            tdDesc.readOnly = true
+            tdId.readOnly = true
+            tdStatus.readOnly = true
 
-            linhasSecundarias.appendChild(cellTitulo)
-            linhasSecundarias.appendChild(cellDesc)
-            linhasSecundarias.appendChild(cellId)
-            linhasSecundarias.appendChild(cellStatus)
+            linhas.appendChild(tdId)
+            linhas.appendChild(tdTitulo)
+            linhas.appendChild(tdDesc)
+            linhas.appendChild(tdStatus)
 
-            tbody.appendChild(linhasSecundarias)
+            tbody.appendChild(linhas)
         })
     })
 

@@ -1,21 +1,23 @@
 const tabela = document.getElementById("tabela")
 const tabela2 = document.getElementById("tabela2")
-export function listarIdFunc(){
+
+export function listarTaskId(){
+   
     
-    var verificacao = document.querySelectorAll(".lisIdUser");
+    var verificacao = document.querySelectorAll(".lisIdTask");
 
 
     //faz a verificação se já existe se retornar null quer dizer que não existe
-    if(verificacao.length  > 0 ){
-        tabela.innerHTML = ""
+    if(verificacao.length > 0){
+        tabela2.innerHTML = ""
         return
     }
-
     const thead  = document.createElement("thead")
     const table = document.createElement("table")
     const trHead = document.createElement("tr")
     
     const inputId = document.createElement("input")
+    inputId.classList.add("lisIdTask")
 
     const colunaNome = document.createElement("th")
     const colunaEmail = document.createElement("th")
@@ -25,18 +27,19 @@ export function listarIdFunc(){
     
     var funcId
     const btnPesquisa = document.createElement("button")
+    btnPesquisa.classList.add("lisIdTask")
 
-    colunaId.textContent = "Id User"
     colunaNome.textContent = "Usuário"
     colunaEmail.textContent = "E-mail"
+    colunaId.textContent = "Id User"
     
-    trHead.appendChild(colunaId)
     trHead.appendChild(colunaNome)
     trHead.appendChild(colunaEmail)
+    trHead.appendChild(colunaId)
 
     thead.appendChild(trHead)
 
-    table.classList.add("listall")
+    table.classList.add("lisIdTask")
     table.appendChild(thead)
 
     
@@ -45,13 +48,13 @@ export function listarIdFunc(){
     tabela2.innerText = ""
     tabela.innerText = ""
     inputId.placeholder = "Digite o id do usuário que deseja verificar"
-    inputId.classList.add("lisIdUser")
-    btnPesquisa.classList.add("lisIdUser")
-        table.classList.add("lisIdUser")
+    
+    
+        
         btnPesquisa.textContent = "Pesquisar"
 
-        tabela.appendChild(inputId)
-        tabela.appendChild(btnPesquisa)
+        tabela2.appendChild(inputId)
+        tabela2.appendChild(btnPesquisa)
     
         btnPesquisa.addEventListener("click" , async event=>{
      
@@ -81,9 +84,9 @@ export function listarIdFunc(){
               const tdId = document.createElement("td")
 
 
-                tdId.textContent = data.Id
                 tdNome.textContent = data.nome
                 tdEmail.textContent = data.email
+                tdId.textContent = data.Id
                 
 
                 tdNome.readOnly = true;
@@ -97,7 +100,7 @@ export function listarIdFunc(){
                 tbody.appendChild(trBody)
                 table.appendChild(tbody)
 
-                tabela.appendChild(table)
+                tabela2.appendChild(table)
                     
                 
                 
@@ -116,7 +119,8 @@ export function listarIdFunc(){
 
     })
     
-    
+    //para remover caso exista os inputs no front
+   
 }
 
     function verInt(n){
