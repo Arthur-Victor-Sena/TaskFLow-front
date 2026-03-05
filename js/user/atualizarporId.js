@@ -84,6 +84,8 @@ export function atualizarIdFunc() {
                     form.appendChild(labelId)
                     form.appendChild(idInput)
 
+                    form.appendChild(document.createElement("br"))
+
                     form.appendChild(labelNome)
                     form.appendChild(nomeInput)
 

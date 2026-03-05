@@ -19,19 +19,19 @@ try{
     const thead = document.createElement("thead")
     const colunas = document.createElement("tr")
 
+    const colunaIdTask = document.createElement("th")
     const colunaTituloTask = document.createElement("th")
     const colunaDescTask = document.createElement("th")
-    const colunaIdTask = document.createElement("th")
     const colunaStatusTask = document.createElement("th")
 
+    colunaIdTask.innerText = "ID da tarefa"
     colunaTituloTask.innerText = "Titulo"
     colunaDescTask.innerText = "Descrição"
-    colunaIdTask.innerText = "ID da tarefa"
     colunaStatusTask.innerText = "Status"
 
+    colunas.appendChild(colunaIdTask)
     colunas.appendChild(colunaTituloTask)
     colunas.appendChild(colunaDescTask)
-    colunas.appendChild(colunaIdTask)
     colunas.appendChild(colunaStatusTask)
 
     thead.appendChild(colunas)
@@ -46,15 +46,15 @@ try{
 
             const linhas = document.createElement("tr")
 
+            const tdId = document.createElement("td")
             const tdTitulo = document.createElement("td")
             const tdDesc = document.createElement("td")
-            const tdId = document.createElement("td")
             const tdStatus = document.createElement("td")
 
 
+            tdId.innerText = data.Id
             tdTitulo.innerText = data.titulo
             tdDesc.innerText = data.descr
-            tdId.innerText = data.Id
             tdStatus.innerText = data.status
 
             tdTitulo.readOnly = true

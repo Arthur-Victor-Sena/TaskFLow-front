@@ -141,7 +141,7 @@ export function apagarId() {
                     }
 
                 } catch {
-                    alert("ERRO! não foi possíel concluir esta ação")
+                    alert("ERRO! não foi possível concluir esta ação")
                 }
 
             } else {
